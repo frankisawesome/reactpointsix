@@ -37,4 +37,12 @@
   max-width: 1vw;
   min-width: 500px;
   justify-self: center;
+  /* Template code for cross-platform centre positioning */
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+Button {
+  margin-top: 10px;
 }
