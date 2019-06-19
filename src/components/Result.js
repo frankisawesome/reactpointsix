@@ -10,6 +10,7 @@ export function Result(props){
 
     return(
         <Card.Body>
+            {(props.err) ? props.err.toString() : null}
             <List data = {props.data}/>
             <Button variant="primary" onClick = {back}>Back</Button>
         </Card.Body>

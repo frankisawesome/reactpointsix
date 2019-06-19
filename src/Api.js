@@ -1,17 +1,20 @@
-require('dotenv').config()
+const url = 'https://threepointsix.azurewebsites.net/api/post';
 
-const url = process.env.API_URL;
-
-export function PostNew(user, message){
-    fetch(url, {
+export function PostNew(message){
+    return fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: {
-            userId: user,
-            message: message
+            Message: message,
+            Authors: ['thatoneguy']
         }
     })
-    .then((res) => res.json)
+}
+
+export function GetMessages(){
+    return fetch(url, {
+        method: 'GET',
+    })
 }
