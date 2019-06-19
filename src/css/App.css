@@ -35,7 +35,7 @@
 
 .card {
   max-width: 1vw;
-  min-width: 500px;
+  min-width: 0.4vw;
   justify-self: center;
   /* Template code for cross-platform centre positioning */
   margin: auto;
