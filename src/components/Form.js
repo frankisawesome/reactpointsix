@@ -7,16 +7,20 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
+//Api(fetch) calls
+
 
 export function AppForm(props) {
+    //Hooks for message
     const [message, setMessage] = useState('');
 
+    //Event triggers
     function messageChange(e) {
         setMessage(e.target.value)
     }
 
     function submitMessage() {
-
+        props.setRender('results')
     }
 
     return (

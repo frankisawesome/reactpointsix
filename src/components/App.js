@@ -1,7 +1,6 @@
 //React, router and hooks
 import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //Css and bootstrap
 import '../css/App.css';
@@ -14,21 +13,27 @@ import { Result } from './Result'
 
 
 function App() {
-  const [render, setRender] = useState('form');
-  const [loading, setLoading] = useState(false);
+  //Hooks that manage main states
+  const [render, setRender] = useState('form'); //Determines if the form or results is rendered
+  const [loading, setLoading] = useState(false); //if currently loading
+  const [data, setData] = useState(null); //Stores the array of messages
+
+  //Props to allow components to change the main states
+  const controlProps = {
+    setRender: setRender,
+    setLoading: setLoading,
+    setData: setData,
+  }
 
 
   return (
-    <Router>
-      <div className="App">
-        <Card>
-          <Card.Header>Three Point Six</Card.Header>
-          <Route path="/" exact component={AppForm} />
-          <Route path="/results" component={Result} />
-          <p>A little experimental MERN stack app by Frank Li and Sebastian Muir-Smith @ QUT, Brisbane</p>
-        </Card>
-      </div>
-    </Router>
+    <div className="App">
+      <Card>
+        <Card.Header>Three Point Six</Card.Header>
+        {(render === 'form') ? <AppForm {...controlProps} /> : <Result {...controlProps} data={data} />}
+        <p>A little experimental MERN stack app by Frank Li and Sebastian Muir-Smith @ QUT, Brisbane</p>
+      </Card>
+    </div>
   );
 }
 
