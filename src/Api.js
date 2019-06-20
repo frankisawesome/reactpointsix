@@ -7,8 +7,8 @@ export function PostNew(message){
             'Content-Type': 'application/json',
         },
         body: {
-            Message: message,
-            Authors: ['thatoneguy']
+            "Message": message,
+            "Authors": ["thatoneguy"]
         }
     })
 }

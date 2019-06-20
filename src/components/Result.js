@@ -6,12 +6,13 @@ import {List} from './List';
 export function Result(props){
     function back(){
         props.setRender('form')
+        props.setErr(null);
     }
 
     return(
         <Card.Body>
             {(props.err) ? props.err.toString() : null}
-            <List data = {props.data}/>
+            {props.loading ? <p>Loading</p> : <List data = {props.data}/>}
             <Button variant="primary" onClick = {back}>Back</Button>
         </Card.Body>
     )
